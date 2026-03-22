@@ -1,42 +1,42 @@
-# 🌐 Web3 学习仓库（web3-learning）
+# ArcFi
 
-这是我的个人 **Web3 / 智能合约开发学习仓库**，用于系统性地记录从零到可以进行智能合约开发的整个过程。
-
-目标不是简单完成教程，而是：
-
-- 有一套 **可运行、可测试、可迭代的合约代码**
-- 每天都有 **清晰的学习产出**（合约 / 测试 / 文档）
-- 最终形成一个**工程级作品集**
+ArcFi is a modular DeFi dashboard focused on staking, vaults, liquidity pools, and token operations.
 
 ---
 
-## 🎯 总体目标
+## Overview
 
-- 方向：以太坊生态 / Solidity 智能合约开发
-- 预期能力：
-  - 熟练编写 Solidity 合约（ERC20 / ERC721 / Vault / 简单 DeFi）
-  - 会使用 Hardhat + TypeScript 进行开发与测试
-  - 理解 EVM、状态树、存储、事件、gas 成本等核心概念
-  - 能将合约部署到测试网并编写简单 DApp 前端进行交互
+ArcFi packages a set of core DeFi workflows into a single dashboard:
 
----
+- Vault deposits and withdrawals
+- Liquidity pool asset/share tracking
+- Token operations and staking approvals
+- Staking, reward funding, and distribution monitoring
 
-## 🧰 技术栈与工具
-
-当前与计划使用的技术栈包括：
-
-- **Solidity 0.8.x** — 智能合约语言
-- **Hardhat 2.x** — 主力本地开发框架
-- **TypeScript** — 所有脚本与测试默认使用 TS
-- **ethers.js v6** — 合约交互 & 测试
-- **TypeChain** — 从 ABI 生成 TS 类型
-- **Hardhat Toolbox / Gas Reporter** — 测试与 gas 分析
-- （后续）**Foundry** — 高效测试与 fuzzing
-- （后续）**前端 DApp** — 基于 React / Vue 的简单交互页面
+The repository still preserves the full Day 1-Day 15 build log and learning trail, but the project homepage is organized around the product surface first.
 
 ---
 
-## 📂 仓库结构（当前）
+## Features
+
+- Modular pages for `Token Operations`, `Vault`, `Liquidity Pool`, and `Staking`
+- Hardhat-based contract development, testing, and local deployment flows
+- Vite + React + Ant Design DApp for wallet-connected interactions
+- Deployment outputs synced into the front-end config for local development
+- Day-by-day implementation notes retained as project documentation
+
+### Stack
+
+- **Solidity 0.8.x**
+- **Hardhat 2.x**
+- **TypeScript**
+- **ethers.js v6**
+- **TypeChain**
+- **Vite + React + Ant Design**
+
+---
+
+## Project Structure
 
 ```bash
 web3-learning/
@@ -131,27 +131,27 @@ web3-learning/
 
 ---
 
-## ⚙️ 环境与运行方式
+## Quick Start
 
-### 1. 环境要求
+### 1. Requirements
 
 - Node.js ≥ 20.x（使用 nvm 管理版本）
 - npm / pnpm / yarn（当前使用 npm）
 - Git
 
-### 2. 安装依赖
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. 编译合约
+### 3. Compile contracts
 
 ```bash
 npx hardhat compile
 ```
 
-### 4. 运行测试
+### 4. Run tests
 
 ```bash
 npx hardhat test
@@ -163,7 +163,7 @@ npx hardhat test
 npx hardhat clean
 ```
 
-### 5. 一键部署（本地 localhost）
+### 5. Deploy locally
 
 ```bash
 npx hardhat node
@@ -180,7 +180,7 @@ npx hardhat run scripts/deployAll.ts --network localhost
 - 部署产物会写入 `deployments/localhost/*.json`
 - 脚本会将最新地址同步到 `dapp/src/config.ts`（供前端直接使用）
 
-### 6. 运行 DApp 前端
+### 6. Start the dashboard
 
 ```bash
 cd dapp
@@ -190,7 +190,7 @@ npm run dev
 
 ---
 
-## 🗺 学习路线规划（大纲）
+## Roadmap
 
 > 这是整个仓库的「学习主线」，每天的实际进度会记录在下方「学习日志」中。
 

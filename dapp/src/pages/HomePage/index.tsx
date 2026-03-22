@@ -18,8 +18,17 @@ const HomePage = () => {
 
   return (
     <Space orientation="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="small" style={{ width: '100%' }}>
+        <Title level={2} style={{ marginBottom: 0 }}>
+          ArcFi Dashboard
+        </Title>
+        <Paragraph type="secondary" style={{ marginBottom: 0 }}>
+          A modular DeFi dashboard for staking, vaults, pools, and token operations.
+        </Paragraph>
+      </Space>
+
       <Card hoverable>
-        <Title level={3}>当前钱包</Title>
+        <Title level={3}>Connected Wallet</Title>
         {address ? (
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <WalletInfo
@@ -42,15 +51,15 @@ const HomePage = () => {
           <Card hoverable style={moduleCardStyle}>
             <Space orientation="vertical" size="small">
               <Title level={4} style={{ marginBottom: 0 }}>
-                代币管理 MyTokenV2
+                Token Operations
               </Title>
               <Paragraph type="secondary" style={{ marginBottom: 0 }}>
-                铸造测试代币、给指定地址转账，并查看授权额度与合约地址。
+                Manage token supply, transfers, approvals, and core token metadata.
               </Paragraph>
             </Space>
             <Link to="/token">
               <Button type="primary" block>
-                进入代币管理模块
+                Open Token Operations
               </Button>
             </Link>
           </Card>
@@ -60,15 +69,15 @@ const HomePage = () => {
           <Card hoverable style={moduleCardStyle}>
             <Space orientation="vertical" size="small">
               <Title level={4} style={{ marginBottom: 0 }}>
-                金库 SimpleVaultSafe
+                Vault
               </Title>
               <Paragraph type="secondary" style={{ marginBottom: 0 }}>
-                查看金库版本号、余额，并后续进行存款、取款等操作。
+                Review vault balances, contract status, and manage deposits or withdrawals.
               </Paragraph>
             </Space>
             <Link to="/vault">
               <Button type="primary" block>
-                进入金库模块
+                Open Vault
               </Button>
             </Link>
           </Card>
@@ -78,15 +87,15 @@ const HomePage = () => {
           <Card hoverable style={moduleCardStyle}>
             <Space orientation="vertical" size="small">
               <Title level={4} style={{ marginBottom: 0 }}>
-                质押池 StakingPool
+                Staking
               </Title>
               <Paragraph type="secondary" style={{ marginBottom: 0 }}>
-                后续将接入质押收益模块，支持存入、提取与领取奖励。
+                Stake tokens, monitor rewards, and manage reward distribution flows.
               </Paragraph>
             </Space>
             <Link to="/staking">
               <Button type="primary" block>
-                进入质押池模块
+                Open Staking
               </Button>
             </Link>
           </Card>
@@ -96,15 +105,15 @@ const HomePage = () => {
           <Card hoverable style={moduleCardStyle}>
             <Space orientation="vertical" size="small">
               <Title level={4} style={{ marginBottom: 0 }}>
-                资金池 BankPool
+                Liquidity Pool
               </Title>
               <Paragraph type="secondary" style={{ marginBottom: 0 }}>
-                模拟流动性资金池与份额分配逻辑，用于深入理解 DeFi。
+                Track pooled assets, shares, and liquidity entry or exit actions.
               </Paragraph>
             </Space>
             <Link to="/bank">
               <Button type="primary" block>
-                进入资金池模块
+                Open Liquidity Pool
               </Button>
             </Link>
           </Card>
@@ -112,15 +121,16 @@ const HomePage = () => {
       </Row>
 
       <Card hoverable>
-        <Title level={4}>学习进度</Title>
+        <Title level={4}>Platform Overview</Title>
         <Paragraph>
           <Text>
-            当前已完成：钱包连接、SimpleVaultSafe 金库读写、BankPool ETH 资金池前端接入、StakingPool
-            质押池基础交互，以及 MyTokenV2 代币管理入口。
+            ArcFi currently supports wallet connectivity, vault deposits and withdrawals, liquidity
+            pool monitoring, staking interactions, and token management workflows.
           </Text>
           <br />
           <Text>
-            下一步：完善 StakingPool 奖励分发与收益展示，并继续优化整体 UI 与合约交互体验。
+            The current interface is organized around modular DeFi actions so each workflow can be
+            operated from a dedicated dashboard page.
           </Text>
         </Paragraph>
       </Card>

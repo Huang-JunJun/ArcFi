@@ -16,7 +16,7 @@ const MainLayout = () => {
           fontWeight: 600,
         }}
       >
-        <span>Web3 学习控制台</span>
+        <span>ArcFi Dashboard</span>
         <a
           href="/"
           style={{
@@ -24,7 +24,7 @@ const MainLayout = () => {
             fontSize: 16,
           }}
         >
-          回到主页
+          Dashboard
         </a>
       </Header>
 

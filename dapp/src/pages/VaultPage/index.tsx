@@ -105,8 +105,8 @@ const VaultPage = () => {
     return (
       <Card>
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
-          <Typography.Title level={3}>SimpleVaultSafe 金库</Typography.Title>
-          <Typography.Text>请先连接钱包以加载金库信息。</Typography.Text>
+          <Typography.Title level={3}>Vault</Typography.Title>
+          <Typography.Text>Connect your wallet to load vault data.</Typography.Text>
           <Button type="primary" onClick={connectWallet}>
             连接钱包
           </Button>
@@ -118,13 +118,13 @@ const VaultPage = () => {
   return (
     <Card>
       <Space orientation="vertical" size="large" style={{ width: '100%' }}>
-        <Typography.Title level={3}>SimpleVaultSafe 金库</Typography.Title>
+        <Typography.Title level={3}>Vault</Typography.Title>
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Descriptions column={1} bordered>
-            <Descriptions.Item label="当前地址">{address}</Descriptions.Item>
-            <Descriptions.Item label="版本号">{version || '-'}</Descriptions.Item>
-            <Descriptions.Item label="金库余额">
+            <Descriptions.Item label="Wallet Address">{address}</Descriptions.Item>
+            <Descriptions.Item label="Contract Version">{version || '-'}</Descriptions.Item>
+            <Descriptions.Item label="Vault Balance">
               {balance ? `${balance} ETH` : '-'}
             </Descriptions.Item>
           </Descriptions>
@@ -134,17 +134,17 @@ const VaultPage = () => {
             disabled={infoLoading || txBusy}
             onClick={handleLoadInfo}
           >
-            读取金库信息
+            Refresh Vault Data
           </Button>
         </Space>
 
         <Divider />
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-          <Typography.Title level={5}>存入 ETH</Typography.Title>
+          <Typography.Title level={5}>Deposit ETH</Typography.Title>
           <Space orientation="horizontal" size="middle">
             <Input
-              placeholder="输入存款金额，例如 0.1"
+              placeholder="Enter deposit amount, e.g. 0.1"
               value={depositAmount}
               onChange={(e) => setDepositAmount(e.target.value)}
               style={{ width: 200 }}
@@ -156,16 +156,16 @@ const VaultPage = () => {
               disabled={infoLoading || txBusy}
               onClick={handleDeposit}
             >
-              存款
+              Deposit
             </Button>
           </Space>
         </Space>
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-          <Typography.Title level={5}>取出 ETH</Typography.Title>
+          <Typography.Title level={5}>Withdraw ETH</Typography.Title>
           <Space orientation="horizontal" size="middle">
             <Input
-              placeholder="输入取款金额，例如 0.05"
+              placeholder="Enter withdraw amount, e.g. 0.05"
               value={withdrawAmount}
               onChange={(e) => setWithdrawAmount(e.target.value)}
               style={{ width: 200 }}
@@ -178,7 +178,7 @@ const VaultPage = () => {
               disabled={infoLoading || txBusy}
               onClick={handleWithdraw}
             >
-              取款
+              Withdraw
             </Button>
           </Space>
         </Space>

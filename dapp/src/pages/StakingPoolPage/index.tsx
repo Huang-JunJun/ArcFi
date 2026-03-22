@@ -570,8 +570,8 @@ const StakingPoolPage = () => {
     return (
       <Card>
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
-          <Typography.Title level={3}>质押池（StakingPool）</Typography.Title>
-          <Typography.Text>请先连接钱包后再进行质押、解除质押或领取奖励操作。</Typography.Text>
+          <Typography.Title level={3}>Staking</Typography.Title>
+          <Typography.Text>Connect your wallet before staking, unstaking, or claiming rewards.</Typography.Text>
           <Button type="primary" onClick={connectWallet}>
             连接钱包
           </Button>
@@ -583,7 +583,7 @@ const StakingPoolPage = () => {
   return (
     <Card>
       <Space orientation="vertical" size="large" style={{ width: '100%' }}>
-        <Typography.Title level={3}>质押池（StakingPool）</Typography.Title>
+        <Typography.Title level={3}>Staking</Typography.Title>
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Descriptions bordered column={1}>
@@ -601,12 +601,12 @@ const StakingPoolPage = () => {
             </Descriptions.Item>
           </Descriptions>
           <Typography.Text type="secondary">
-            • rewardPerTokenStored = 每 1 token 累积奖励因子（放大 1e18）
+            Pool balance includes staked principal, pending distribution, and distributed but
+            unclaimed rewards.
             <br />
-            • earned = balance * (rewardPerTokenStored - paid) / 1e18 + rewards
+            Claimable rewards only increase after rewards are distributed.
             <br />
-            口径等式：池子总量 = 总质押 + 未分配 + 已分配未领取；当前可领取 = 已分配未领取 × 你的份额（通过
-            earned 计算）
+            池子总量 = 总质押 + 未分配 + 已分配未领取；当前可领取奖励会在派发后按质押份额更新。
           </Typography.Text>
           <Button
             type="default"
@@ -625,7 +625,7 @@ const StakingPoolPage = () => {
             disabled={infoLoading || txBusy}
             onClick={handleRefresh}
           >
-            刷新质押信息
+            Refresh Staking Data
           </Button>
         </Space>
 
@@ -633,14 +633,15 @@ const StakingPoolPage = () => {
 
         {isPoolOwner && (
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-            <Typography.Title level={5}>派发奖励（推荐：单入口）</Typography.Title>
+            <Typography.Title level={5}>Reward Distribution</Typography.Title>
             <Typography.Text type="secondary">
-              调用合约 fundAndDistribute：合约内部会 transferFrom(owner→pool) 并完成 distribute 记账（需要 owner
-              先 approve 给质押池）。
+              Use the single-entry reward flow to transfer tokens from the owner wallet into the
+              pool and record distribution in one transaction. Owner approval is required before
+              execution.
             </Typography.Text>
             <Space orientation="horizontal" size="middle">
               <Input
-                placeholder="输入派发奖励数量"
+                placeholder="Enter reward amount"
                 style={{ width: 240 }}
                 value={fundAmount}
                 onChange={(e) => setFundAmount(e.target.value)}
@@ -652,14 +653,14 @@ const StakingPoolPage = () => {
                 disabled={infoLoading || txBusy}
                 onClick={handleFundAndDistribute}
               >
-                一键派发
+                Distribute Rewards
               </Button>
             </Space>
           </Space>
         )}
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-          <Typography.Title level={5}>质押用户列表</Typography.Title>
+          <Typography.Title level={5}>Stakers</Typography.Title>
           <Table
             size="small"
             loading={stakersLoading}
@@ -667,7 +668,7 @@ const StakingPoolPage = () => {
             pagination={{ pageSize: 8, hideOnSinglePage: true }}
             columns={[
               {
-                title: '地址',
+                title: 'Address',
                 dataIndex: 'address',
                 key: 'address',
                 render: (v: string) => (
@@ -676,16 +677,16 @@ const StakingPoolPage = () => {
                   </Typography.Text>
                 ),
               },
-              { title: '质押数量', dataIndex: 'staked', key: 'staked', render: (v: string) => `${v} TOKEN` },
+              { title: 'Staked', dataIndex: 'staked', key: 'staked', render: (v: string) => `${v} TOKEN` },
               {
-                title: '待领取',
+                title: 'Claimable',
                 dataIndex: 'claimable',
                 key: 'claimable',
                 render: (v: string) => `${v} TOKEN`,
               },
-              { title: '已领取', dataIndex: 'claimed', key: 'claimed', render: (v: string) => `${v} TOKEN` },
+              { title: 'Claimed', dataIndex: 'claimed', key: 'claimed', render: (v: string) => `${v} TOKEN` },
               {
-                title: '累计奖励',
+                title: 'Total Rewards',
                 dataIndex: 'totalRewards',
                 key: 'totalRewards',
                 render: (v: string) => `${v} TOKEN`,
@@ -693,20 +694,20 @@ const StakingPoolPage = () => {
             ]}
           />
           <Typography.Text type="secondary">
-            说明：列表通过读取合约事件日志汇总地址；“已领取”为 RewardPaid 事件累计；“待领取”为
-            earned()。
+            Addresses are aggregated from staking and reward events. Claimed totals come from
+            `RewardPaid`, while Claimable reflects the current `earned()` value.
           </Typography.Text>
         </Space>
 
         {isPoolOwner && (
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-            <Typography.Title level={5}>发放奖励（教学模式/高级选项）</Typography.Title>
+            <Typography.Title level={5}>Reward Funding</Typography.Title>
             <Typography.Text type="secondary">
-              Pool Owner 将奖励 Token 直接转入 StakingPool 合约，用于后续派发/用户领取。
+              Move reward tokens into the staking pool without updating claimable rewards yet.
             </Typography.Text>
             <Space orientation="horizontal" size="middle">
               <Input
-                placeholder="注入奖励数量"
+                placeholder="Enter funding amount"
                 style={{ width: 240 }}
                 value={injectAmount}
                 onChange={(e) => setInjectAmount(e.target.value)}
@@ -718,7 +719,7 @@ const StakingPoolPage = () => {
                 disabled={infoLoading || txBusy}
                 onClick={handleInject}
               >
-                注入到质押池
+                Fund Pool
               </Button>
               <Button
                 type="default"
@@ -726,33 +727,34 @@ const StakingPoolPage = () => {
                 disabled={infoLoading || txBusy || !rewardFundSupported || unallocatedRewardRaw <= 0n}
                 onClick={handleDistributeAllUnallocated}
               >
-                派发全部未分配
+                Distribute Unallocated
               </Button>
             </Space>
             <Typography.Text type="secondary">
-              • 注入只改变未分配，不会让 earned 变化
+              • Funding only changes the unallocated reward balance.
               <br />
-              • distribute 才会推进 rewardPerTokenStored，使 earned 变化
+              • Distribution updates reward accounting and makes rewards claimable.
             </Typography.Text>
           </Space>
         )}
 
         {isTokenOwner && (
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-            <Typography.Title level={5}>发放奖励（Token Owner）</Typography.Title>
+            <Typography.Title level={5}>Direct Token Transfer</Typography.Title>
             <Typography.Text type="secondary">
-              直接从代币部署者钱包转账给用户，不经过 StakingPool 记账。
+              Send rewards directly from the token owner wallet without using staking reward
+              accounting.
             </Typography.Text>
             <Space orientation="horizontal" size="middle" wrap>
               <Input
-                placeholder="接收地址（默认当前用户）"
+                placeholder="Recipient address (defaults to current wallet)"
                 style={{ width: 420 }}
                 value={rewardTo}
                 onChange={(e) => setRewardTo(e.target.value)}
                 disabled={infoLoading || txBusy}
               />
               <Input
-                placeholder="奖励数量"
+                placeholder="Reward amount"
                 style={{ width: 220 }}
                 value={rewardPayAmount}
                 onChange={(e) => setRewardPayAmount(e.target.value)}
@@ -764,7 +766,7 @@ const StakingPoolPage = () => {
                 disabled={infoLoading || txBusy}
                 onClick={handleRewardPay}
               >
-                直接转账发放
+                Send Tokens
               </Button>
             </Space>
           </Space>
@@ -772,13 +774,14 @@ const StakingPoolPage = () => {
 
         {isPoolOwner && (
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-            <Typography.Title level={5}>派发奖励（教学模式/高级选项）</Typography.Title>
+            <Typography.Title level={5}>Advanced Distribution Options</Typography.Title>
             <Typography.Text type="secondary">
-              可选流程：先“注入到质押池”，再点击“仅派发”；或直接点击“转账并派发”（两笔交易）。
+              Optional flow: fund the pool first and distribute later, or execute transfer and
+              distribution as separate transactions.
             </Typography.Text>
             <Space orientation="horizontal" size="middle">
               <Input
-                placeholder="输入派发奖励数量"
+                placeholder="Enter reward amount"
                 style={{ width: 240 }}
                 value={rewardAmount}
                 onChange={(e) => setRewardAmount(e.target.value)}
@@ -790,7 +793,7 @@ const StakingPoolPage = () => {
                 disabled={infoLoading || txBusy}
                 onClick={handleDistributeOnly}
               >
-                仅派发（已注入）
+                Distribute Only
               </Button>
               <Button
                 type="primary"
@@ -798,7 +801,7 @@ const StakingPoolPage = () => {
                 disabled={infoLoading || txBusy}
                 onClick={handleDistribute}
               >
-                转账并派发
+                Transfer and Distribute
               </Button>
             </Space>
           </Space>

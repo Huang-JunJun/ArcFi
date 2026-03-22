@@ -120,8 +120,8 @@ const BankPoolPage = () => {
     return (
       <Card>
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
-          <Typography.Title level={3}>ETH 资金池（BankPool）</Typography.Title>
-          <Typography.Text>请先连接钱包再进行存款或赎回操作。</Typography.Text>
+          <Typography.Title level={3}>Liquidity Pool</Typography.Title>
+          <Typography.Text>Connect your wallet before adding or removing liquidity.</Typography.Text>
           <Button type="primary" onClick={connectWallet}>
             连接钱包
           </Button>
@@ -133,19 +133,19 @@ const BankPoolPage = () => {
   return (
     <Card>
       <Space orientation="vertical" size="large" style={{ width: '100%' }}>
-        <Typography.Title level={3}>ETH 资金池（BankPool）</Typography.Title>
+        <Typography.Title level={3}>Liquidity Pool</Typography.Title>
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Descriptions column={1} bordered>
-            <Descriptions.Item label="池子总资产">
+            <Descriptions.Item label="Total Assets">
               {formatAmount(totalAssets, 4)} ETH
             </Descriptions.Item>
 
-            <Descriptions.Item label="池子总份额">{formatAmount(totalShares, 4)}</Descriptions.Item>
+            <Descriptions.Item label="Total Shares">{formatAmount(totalShares, 4)}</Descriptions.Item>
 
-            <Descriptions.Item label="我的份额">{formatAmount(userShares, 4)}</Descriptions.Item>
+            <Descriptions.Item label="Your Shares">{formatAmount(userShares, 4)}</Descriptions.Item>
 
-            <Descriptions.Item label="按当前份额可赎回">
+            <Descriptions.Item label="Withdraw Preview">
               {formatAmount(previewAssets, 4)} ETH
             </Descriptions.Item>
           </Descriptions>
@@ -156,17 +156,17 @@ const BankPoolPage = () => {
             disabled={infoLoading || txBusy}
             onClick={handleRefresh}
           >
-            刷新池子信息
+            Refresh Pool Data
           </Button>
         </Space>
 
         <Divider />
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-          <Typography.Title level={5}>存入 ETH</Typography.Title>
+          <Typography.Title level={5}>Deposit ETH</Typography.Title>
           <Space orientation="horizontal" size="middle">
             <Input
-              placeholder="输入存款金额，例如 0.1"
+              placeholder="Enter deposit amount, e.g. 0.1"
               value={depositAmount}
               onChange={(e) => setDepositAmount(e.target.value)}
               style={{ width: 200 }}
@@ -178,16 +178,16 @@ const BankPoolPage = () => {
               disabled={infoLoading || txBusy}
               onClick={handleDeposit}
             >
-              存款
+              Deposit
             </Button>
           </Space>
         </Space>
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
-          <Typography.Title level={5}>赎回份额</Typography.Title>
+          <Typography.Title level={5}>Redeem Shares</Typography.Title>
           <Space orientation="horizontal" size="middle">
             <Input
-              placeholder="输入要赎回的 shares 数量"
+              placeholder="Enter shares to redeem"
               value={withdrawShares}
               onChange={(e) => setWithdrawShares(e.target.value)}
               style={{ width: 240 }}
@@ -200,7 +200,7 @@ const BankPoolPage = () => {
               disabled={infoLoading || txBusy}
               onClick={handleWithdraw}
             >
-              赎回
+              Redeem
             </Button>
           </Space>
         </Space>
