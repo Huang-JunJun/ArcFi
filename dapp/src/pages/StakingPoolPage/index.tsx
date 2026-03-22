@@ -587,10 +587,10 @@ const StakingPoolPage = () => {
 
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Descriptions bordered column={1}>
-            <Descriptions.Item label="poolTokenBalance = token.balanceOf(pool)">
+            <Descriptions.Item label="质押池总代币数量">
               {poolTotalTokenBalance ? `${poolTotalTokenBalance} TOKEN` : '0'}
             </Descriptions.Item>
-            <Descriptions.Item label="totalStaked">
+            <Descriptions.Item label="池子总质押">
               {totalStaked ? `${totalStaked} TOKEN` : '-'}
             </Descriptions.Item>
             <Descriptions.Item label="rewardFund（已分配未领取）">
