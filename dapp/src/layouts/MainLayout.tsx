@@ -12,7 +12,9 @@ const MainLayout = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '0 24px',
+          padding: '14px 24px',
+          height: 'auto',
+          lineHeight: 'normal',
           fontSize: 20,
           fontWeight: 600,
         }}
