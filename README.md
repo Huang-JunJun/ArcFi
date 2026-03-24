@@ -1,58 +1,58 @@
 # ArcFi
 
-ArcFi is a modular DeFi dashboard focused on staking, vaults, liquidity pools, and token operations.
+ArcFi 是一个聚焦于质押、金库、流动性池与代币操作的模块化 DeFi 控制台。
 
 ArcFi 同时也是这个仓库的产品化展示层：上层是可交互的 DeFi 控制台，下层是 Solidity 合约、Hardhat 测试、部署脚本与前端集成的完整工程实践。
 
 ---
 
-## Overview
+## 项目概览
 
-ArcFi packages a set of core DeFi workflows into a single dashboard:
+ArcFi 将一组核心 DeFi 流程聚合到一个统一控制台中：
 
-- Vault deposits and withdrawals
-- Liquidity pool asset/share tracking
-- Token operations and staking approvals
-- Staking, reward funding, and distribution monitoring
+- 金库存入与取出
+- 流动性池资产与份额查看
+- 代币管理与质押授权
+- 质押、奖励注入与派发监控
 
-The repository still preserves the full Day 1-Day 15 build log and learning trail, but the project homepage is organized around the product surface first.
+仓库仍然完整保留了 Day 1 到 Day 15 的学习日志与构建轨迹，但 README 首页优先按产品项目的方式组织信息。
 
 当前仓库包含两条主线：
 
-- **Product Surface**：ArcFi 前端控制台，聚焦实际可操作的 DeFi 页面与交互体验
-- **Engineering Foundation**：Solidity 合约、Hardhat 测试、部署脚本、前端链上交互封装
+- **产品层**：ArcFi 前端控制台，聚焦实际可操作的 DeFi 页面与交互体验
+- **工程层**：Solidity 合约、Hardhat 测试、部署脚本、前端链上交互封装
 
-如果你想快速理解项目，可以先看下方的 `Features`、`Modules` 与 `Quick Start`；如果你想回看完整学习路径，可以直接跳到后面的 `学习日志 / Daily Progress`。
+如果你想快速理解项目，可以先看下方的 `项目特性`、`当前模块` 与 `快速开始`；如果你想回看完整学习路径，可以直接跳到后面的 `学习日志 / Daily Progress`。
 
 ---
 
-## Features
+## 项目特性
 
-- Modular pages for `Token Operations`, `Vault`, `Liquidity Pool`, and `Staking`
-- Hardhat-based contract development, testing, and local deployment flows
-- Vite + React + Ant Design DApp for wallet-connected interactions
-- Deployment outputs synced into the front-end config for local development
-- Day-by-day implementation notes retained as project documentation
+- 模块化页面：代币操作、金库、流动性池、质押
+- 基于 Hardhat 的合约开发、测试与本地部署流程
+- 基于 Vite + React + Ant Design 的钱包交互式 DApp
+- 部署结果自动同步到前端配置，便于本地联调
+- 保留逐日实现记录，兼顾项目展示与学习沉淀
 
-### Modules
+### 当前模块
 
-- **Token Operations**
+- **代币操作**
   - 查看代币总供应量、钱包余额、授权额度
-  - 支持 owner 铸造、转账
+  - 支持代币所有者铸造、转账
   - 支持普通用户授权给质押池
-- **Vault**
+- **金库**
   - 查看合约版本与金库余额
   - 支持 ETH 存入与取出
-- **Liquidity Pool**
+- **流动性池**
   - 查看总资产、总份额、我的份额、预计可取回金额
   - 支持 ETH 存入与份额赎回
-- **Staking**
+- **质押**
   - 查看质押池余额、总质押量、已分配奖励、待分配奖励
   - 支持 stake / unstake / harvest
   - 支持奖励注入、单入口派发、进阶派发工具
   - 支持事件日志汇总的质押用户列表
 
-### Stack
+### 技术栈
 
 - **Solidity 0.8.x**
 - **Hardhat 2.x**
@@ -63,7 +63,7 @@ The repository still preserves the full Day 1-Day 15 build log and learning trai
 
 ---
 
-## Project Structure
+## 项目结构
 
 仓库按“合约层 / 测试层 / 部署层 / 前端层”划分，结构保持尽量清晰：
 
@@ -160,23 +160,23 @@ web3-learning/
 
 ---
 
-## Quick Start
+## 快速开始
 
 下面是本地开发最短路径，适合第一次拉起 ArcFi：
 
-### 1. Requirements
+### 1. 环境要求
 
 - Node.js ≥ 20.x（使用 nvm 管理版本）
 - npm / pnpm / yarn（当前使用 npm）
 - Git
 
-### 2. Install dependencies
+### 2. 安装依赖
 
 ```bash
 npm install
 ```
 
-### 3. Compile contracts
+### 3. 编译合约
 
 编译 Solidity 合约并同步生成 ABI / TypeChain 类型：
 
@@ -184,7 +184,7 @@ npm install
 npx hardhat compile
 ```
 
-### 4. Run tests
+### 4. 运行测试
 
 ```bash
 npx hardhat test
@@ -196,7 +196,7 @@ npx hardhat test
 npx hardhat clean
 ```
 
-### 5. Deploy locally
+### 5. 本地部署
 
 先启动本地 Hardhat 节点：
 
@@ -215,7 +215,7 @@ npx hardhat run scripts/deployAll.ts --network localhost
 - 部署产物会写入 `deployments/localhost/*.json`
 - 脚本会将最新地址同步到 `dapp/src/config.ts`（供前端直接使用）
 
-### 6. Start the dashboard
+### 6. 启动前端控制台
 
 启动 ArcFi 前端：
 
@@ -225,13 +225,13 @@ npm install
 npm run dev
 ```
 
-### 7. Connect wallet
+### 7. 连接钱包
 
 - 在 MetaMask 中添加本地 Hardhat 网络
 - 导入 `npx hardhat node` 输出的测试账户私钥
 - 打开前端后连接钱包，即可开始本地交互
 
-### Local workflow
+### 本地联调流程
 
 ```bash
 # Terminal 1
@@ -254,7 +254,7 @@ npx hardhat compile
 
 ---
 
-## Roadmap
+## 开发路线
 
 > 这是整个仓库的「学习主线」，每天的实际进度会记录在下方「学习日志」中。
 
