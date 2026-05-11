@@ -131,6 +131,27 @@ const HomePage = () => {
             </div>
           </Card>
         </Col>
+
+        <Col xs={24} sm={12} md={12} lg={6}>
+          <Card hoverable className="surface-card module-card" style={moduleCardStyle}>
+            <div className="module-card-inner">
+              <Space orientation="vertical" size="small">
+                <Text className="metric-label">实验</Text>
+                <Title level={4} style={{ marginBottom: 0 }}>
+                  Wagmi 实验
+                </Title>
+                <Paragraph type="secondary" style={{ marginBottom: 0 }}>
+                  使用 wagmi 连接钱包，读取 ETH 余额，并展示当前 Chain ID。
+                </Paragraph>
+              </Space>
+              <Link to="/wagmi-demo">
+                <Button type="primary" block size="large">
+                  进入 Wagmi 实验
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        </Col>
       </Row>
 
       <Card className="surface-card" bordered={false}>
@@ -165,8 +186,8 @@ const HomePage = () => {
             <Col xs={24} sm={12} lg={6}>
               <Card className="metric-card" bordered={false}>
                 <Text className="metric-label">已接入模块</Text>
-                <Text className="metric-value">4</Text>
-                <Text className="metric-meta">代币、金库、流动性池与质押模块已上线</Text>
+                <Text className="metric-value">5</Text>
+                <Text className="metric-meta">代币、金库、流动性池、质押与 Wagmi 实验模块已上线</Text>
               </Card>
             </Col>
           </Row>

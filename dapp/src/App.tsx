@@ -1,10 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider, theme } from 'antd';
 import { BrowserRouter } from 'react-router-dom';
+import { WagmiProvider } from 'wagmi';
 import { ArcFiThemeContext, type ArcFiThemeMode } from '@/common/themeMode';
+import { wagmiConfig } from '@/wagmi';
 import AppRouter from './router';
 
 const THEME_STORAGE_KEY = 'arcfi-theme-mode';
+const queryClient = new QueryClient();
 
 const applyThemeMode = (mode: ArcFiThemeMode) => {
   document.documentElement.dataset.theme = mode;
@@ -64,9 +68,13 @@ const App = () => {
       }}
     >
       <ArcFiThemeContext.Provider value={themeContextValue}>
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
+        <WagmiProvider config={wagmiConfig}>
+          <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+              <AppRouter />
+            </BrowserRouter>
+          </QueryClientProvider>
+        </WagmiProvider>
       </ArcFiThemeContext.Provider>
     </ConfigProvider>
   );

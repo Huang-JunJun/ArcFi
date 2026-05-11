@@ -108,8 +108,8 @@ const StakingPoolPage = () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (stakingPoolABI as any).abi,
       );
-      const stakedTopic = iface.getEvent('Staked').topicHash;
-      const rewardPaidTopic = iface.getEvent('RewardPaid').topicHash;
+      const stakedTopic = iface.getEvent('Staked')!.topicHash;
+      const rewardPaidTopic = iface.getEvent('RewardPaid')!.topicHash;
 
       const [stakedLogs, rewardPaidLogs] = await Promise.all([
         provider.getLogs({
@@ -128,13 +128,13 @@ const StakingPoolPage = () => {
 
       const addressSet = new Set<string>();
       for (const log of stakedLogs) {
-        const parsed = iface.parseLog(log);
+        const parsed = iface.parseLog(log)!;
         addressSet.add((parsed.args as any).user);
       }
 
       const claimedBy = new Map<string, bigint>();
       for (const log of rewardPaidLogs) {
-        const parsed = iface.parseLog(log);
+        const parsed = iface.parseLog(log)!;
         const user = (parsed.args as any).user as string;
         const reward = BigInt(((parsed.args as any).reward as any).toString());
         addressSet.add(user);
