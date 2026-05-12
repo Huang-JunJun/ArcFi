@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <Space orientation="vertical" size="large" className="page-stack">
-      <Card className="hero-card" bordered={false}>
+      <Card className="hero-card" variant="borderless">
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Space orientation="vertical" size="small" style={{ width: '100%' }}>
             <Title level={2} className="page-title">
@@ -154,14 +154,14 @@ const HomePage = () => {
         </Col>
       </Row>
 
-      <Card className="surface-card" bordered={false}>
+      <Card className="surface-card" variant="borderless">
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Title level={4} className="section-title">
             平台概览
           </Title>
           <Row gutter={[16, 16]} className="metric-grid">
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Text className="metric-label">当前钱包</Text>
                 <Text className="metric-value">
                   {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : '未连接'}
@@ -170,21 +170,21 @@ const HomePage = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Text className="metric-label">当前网络</Text>
                 <Text className="metric-value">{chainNetwork || '未连接'}</Text>
                 <Text className="metric-meta">Chain ID: {chainId ?? '-'}</Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Text className="metric-label">钱包余额</Text>
                 <Text className="metric-value">{balance ? `${balance} ETH` : '-'}</Text>
                 <Text className="metric-meta">连接后自动读取当前钱包的 ETH 余额</Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Text className="metric-label">已接入模块</Text>
                 <Text className="metric-value">5</Text>
                 <Text className="metric-meta">代币、金库、流动性池、质押与 Wagmi 实验模块已上线</Text>

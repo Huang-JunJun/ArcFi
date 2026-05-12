@@ -118,7 +118,7 @@ const BankPoolPage = () => {
 
   if (!address) {
     return (
-      <Card className="empty-state-card" bordered={false}>
+      <Card className="empty-state-card" variant="borderless">
         <div className="empty-state-inner">
           <Typography.Title level={2} className="page-title">
             流动性池
@@ -136,7 +136,7 @@ const BankPoolPage = () => {
 
   return (
     <Space orientation="vertical" size="large" className="page-stack">
-      <Card className="hero-card" bordered={false}>
+      <Card className="hero-card" variant="borderless">
         <div className="toolbar-row">
           <Space orientation="vertical" size="small">
             <Typography.Title level={2} className="page-title">
@@ -160,32 +160,32 @@ const BankPoolPage = () => {
         </div>
       </Card>
 
-      <Card className="surface-card" bordered={false}>
+      <Card className="surface-card" variant="borderless">
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Row gutter={[16, 16]} className="metric-grid">
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">总资产</Typography.Text>
                 <Typography.Text className="metric-value">{formatAmount(totalAssets, 4)} ETH</Typography.Text>
                 <Typography.Text className="metric-meta">池子当前持有的 ETH 总量</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">总份额</Typography.Text>
                 <Typography.Text className="metric-value">{formatAmount(totalShares, 4)}</Typography.Text>
                 <Typography.Text className="metric-meta">用于描述池子份额分配的总规模</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">我的份额</Typography.Text>
                 <Typography.Text className="metric-value">{formatAmount(userShares, 4)}</Typography.Text>
                 <Typography.Text className="metric-meta">当前钱包在池子中的份额占比</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">预计可取回</Typography.Text>
                 <Typography.Text className="metric-value">{formatAmount(previewAssets, 4)} ETH</Typography.Text>
                 <Typography.Text className="metric-meta">按当前份额估算的可赎回资产</Typography.Text>
@@ -204,7 +204,7 @@ const BankPoolPage = () => {
 
       <Row gutter={[16, 16]} className="page-actions-grid">
         <Col xs={24} lg={12}>
-          <Card className="section-card" bordered={false} title="存入">
+          <Card className="section-card" variant="borderless" title="存入">
             <Space orientation="vertical" size="small" style={{ width: '100%' }}>
               <Typography.Text className="section-note">
                 向流动性池追加 ETH，份额会根据当前池子状态自动计算。
@@ -230,7 +230,7 @@ const BankPoolPage = () => {
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card className="section-card" bordered={false} title="赎回">
+          <Card className="section-card" variant="borderless" title="赎回">
             <Space orientation="vertical" size="small" style={{ width: '100%' }}>
               <Typography.Text className="section-note">
                 输入要赎回的份额数量，系统会根据当前份额价值估算可取回资产。

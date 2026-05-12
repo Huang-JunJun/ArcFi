@@ -158,7 +158,7 @@ const TokenPage = () => {
 
   if (!address) {
     return (
-      <Card className="empty-state-card" bordered={false}>
+      <Card className="empty-state-card" variant="borderless">
         <div className="empty-state-inner">
           <Typography.Title level={2} className="page-title">
             代币操作
@@ -176,7 +176,7 @@ const TokenPage = () => {
 
   return (
     <Space orientation="vertical" size="large" className="page-stack">
-      <Card className="hero-card" bordered={false}>
+      <Card className="hero-card" variant="borderless">
         <div className="toolbar-row">
           <Space orientation="vertical" size="small">
             <Typography.Title level={2} className="page-title">
@@ -194,25 +194,25 @@ const TokenPage = () => {
         </div>
       </Card>
 
-      <Card className="surface-card" bordered={false}>
+      <Card className="surface-card" variant="borderless">
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Row gutter={[16, 16]} className="metric-grid">
             <Col xs={24} sm={12} lg={8}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">钱包余额</Typography.Text>
                 <Typography.Text className="metric-value">{balance || '0'} TOKEN</Typography.Text>
                 <Typography.Text className="metric-meta">当前连接钱包的可用代币数量</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={8}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">总供应量</Typography.Text>
                 <Typography.Text className="metric-value">{totalSupply || '-'}</Typography.Text>
                 <Typography.Text className="metric-meta">链上当前已发行的总代币数量</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={8}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">已授权质押额度</Typography.Text>
                 <Typography.Text className="metric-value">{allowance || '0'}</Typography.Text>
                 <Typography.Text className="metric-meta">当前钱包授权给质押池使用的额度</Typography.Text>
@@ -242,7 +242,7 @@ const TokenPage = () => {
 
       <Row gutter={[16, 16]}>
         <Col xs={24} xl={12}>
-          <Card className="section-card" bordered={false} title="管理员操作">
+          <Card className="section-card" variant="borderless" title="管理员操作">
             <Space orientation="vertical" size="large" style={{ width: '100%' }}>
               <Space orientation="vertical" size="small" style={{ width: '100%' }}>
                 <Typography.Title level={5} className="section-title">
@@ -301,7 +301,7 @@ const TokenPage = () => {
           </Card>
         </Col>
         <Col xs={24} xl={12}>
-          <Card className="section-card" bordered={false} title="用户操作">
+          <Card className="section-card" variant="borderless" title="用户操作">
             <Space orientation="vertical" size="small" style={{ width: '100%' }}>
               <Typography.Title level={5} className="section-title">
                 授权

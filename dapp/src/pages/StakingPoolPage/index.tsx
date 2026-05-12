@@ -569,7 +569,7 @@ const StakingPoolPage = () => {
   if (!address) {
     return (
       <Space orientation="vertical" size="large" className="page-stack">
-        <Card className="hero-card" bordered={false}>
+        <Card className="hero-card" variant="borderless">
           <Space orientation="vertical" size="large" style={{ width: '100%' }}>
             <div className="toolbar-row">
               <Space orientation="vertical" size="small">
@@ -589,28 +589,28 @@ const StakingPoolPage = () => {
 
             <Row gutter={[16, 16]} className="metric-grid">
               <Col xs={24} sm={12} lg={6}>
-                <Card className="metric-card" bordered={false}>
+                <Card className="metric-card" variant="borderless">
                   <Typography.Text className="metric-label">质押池余额</Typography.Text>
                   <Typography.Text className="metric-value">-</Typography.Text>
                   <Typography.Text className="metric-meta">连接钱包后读取池子总代币余额</Typography.Text>
                 </Card>
               </Col>
               <Col xs={24} sm={12} lg={6}>
-                <Card className="metric-card" bordered={false}>
+                <Card className="metric-card" variant="borderless">
                   <Typography.Text className="metric-label">总质押量</Typography.Text>
                   <Typography.Text className="metric-value">-</Typography.Text>
                   <Typography.Text className="metric-meta">连接钱包后读取全池质押总量</Typography.Text>
                 </Card>
               </Col>
               <Col xs={24} sm={12} lg={6}>
-                <Card className="metric-card" bordered={false}>
+                <Card className="metric-card" variant="borderless">
                   <Typography.Text className="metric-label">已分配奖励</Typography.Text>
                   <Typography.Text className="metric-value">-</Typography.Text>
                   <Typography.Text className="metric-meta">已派发但尚未领取的奖励</Typography.Text>
                 </Card>
               </Col>
               <Col xs={24} sm={12} lg={6}>
-                <Card className="metric-card" bordered={false}>
+                <Card className="metric-card" variant="borderless">
                   <Typography.Text className="metric-label">待分配奖励</Typography.Text>
                   <Typography.Text className="metric-value">-</Typography.Text>
                   <Typography.Text className="metric-meta">已注入但尚未派发的奖励</Typography.Text>
@@ -620,7 +620,7 @@ const StakingPoolPage = () => {
           </Space>
         </Card>
 
-        <Card className="section-card" bordered={false} title="奖励派发">
+        <Card className="section-card" variant="borderless" title="奖励派发">
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Typography.Text className="section-note">连接钱包后可执行奖励派发与注入操作。</Typography.Text>
             <div className="form-row">
@@ -632,7 +632,7 @@ const StakingPoolPage = () => {
           </Space>
         </Card>
 
-        <Card className="section-card" bordered={false} title="质押操作">
+        <Card className="section-card" variant="borderless" title="质押操作">
           <Row gutter={[16, 16]} className="page-actions-grid">
             <Col xs={24} lg={8}>
               <Space orientation="vertical" size="small" style={{ width: '100%' }}>
@@ -669,7 +669,7 @@ const StakingPoolPage = () => {
           </Row>
         </Card>
 
-        <Card className="section-card" bordered={false} title="质押用户表格">
+        <Card className="section-card" variant="borderless" title="质押用户表格">
           <Table
             className="arcfi-table"
             size="middle"
@@ -690,7 +690,7 @@ const StakingPoolPage = () => {
 
   return (
     <Space orientation="vertical" size="large" className="page-stack">
-      <Card className="hero-card" bordered={false}>
+      <Card className="hero-card" variant="borderless">
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <div className="toolbar-row">
             <Space orientation="vertical" size="small">
@@ -727,7 +727,7 @@ const StakingPoolPage = () => {
 
           <Row gutter={[16, 16]} className="metric-grid">
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">质押池余额</Typography.Text>
                 <Typography.Text className="metric-value">
                   {poolTotalTokenBalance ? `${poolTotalTokenBalance} TOKEN` : '0 TOKEN'}
@@ -738,7 +738,7 @@ const StakingPoolPage = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">总质押量</Typography.Text>
                 <Typography.Text className="metric-value">
                   {totalStaked ? `${totalStaked} TOKEN` : '-'}
@@ -747,7 +747,7 @@ const StakingPoolPage = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">已分配奖励</Typography.Text>
                 <Typography.Text className="metric-value">
                   {rewardFundBalance ? `${rewardFundBalance} TOKEN` : '0 TOKEN'}
@@ -756,7 +756,7 @@ const StakingPoolPage = () => {
               </Card>
             </Col>
             <Col xs={24} sm={12} lg={6}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">待分配奖励</Typography.Text>
                 <Typography.Text className="metric-value">
                   {unallocatedRewardBalance ? `${unallocatedRewardBalance} TOKEN` : '0 TOKEN'}
@@ -772,24 +772,24 @@ const StakingPoolPage = () => {
         </Space>
       </Card>
 
-      <Card className="section-card" bordered={false} title="我的质押状态">
+      <Card className="section-card" variant="borderless" title="我的质押状态">
         <Row gutter={[16, 16]} className="metric-grid">
           <Col xs={24} sm={8}>
-            <Card className="metric-card" bordered={false}>
+            <Card className="metric-card" variant="borderless">
               <Typography.Text className="metric-label">我的质押</Typography.Text>
               <Typography.Text className="metric-value">{userStaked || '0'} TOKEN</Typography.Text>
               <Typography.Text className="metric-meta">当前钱包已质押到池中的 Token 数量</Typography.Text>
             </Card>
           </Col>
           <Col xs={24} sm={8}>
-            <Card className="metric-card" bordered={false}>
+            <Card className="metric-card" variant="borderless">
               <Typography.Text className="metric-label">当前可领取奖励</Typography.Text>
               <Typography.Text className="metric-value">{earned || '0'} TOKEN</Typography.Text>
               <Typography.Text className="metric-meta">完成派发后可由当前钱包领取的奖励</Typography.Text>
             </Card>
           </Col>
           <Col xs={24} sm={8}>
-            <Card className="metric-card" bordered={false}>
+            <Card className="metric-card" variant="borderless">
               <Typography.Text className="metric-label">已授权质押额度</Typography.Text>
               <Typography.Text className="metric-value">{allowance || '0'} TOKEN</Typography.Text>
               <Typography.Text className="metric-meta">当前钱包已授权给质押池的可用额度</Typography.Text>
@@ -799,7 +799,7 @@ const StakingPoolPage = () => {
       </Card>
 
       {isPoolOwner && (
-        <Card className="section-card" bordered={false} title="奖励派发">
+        <Card className="section-card" variant="borderless" title="奖励派发">
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Typography.Text className="section-note">
               使用单入口奖励流程，可在一笔交易中将奖励从管理员钱包转入质押池并完成派发记账。执行前需要先完成授权。
@@ -826,7 +826,7 @@ const StakingPoolPage = () => {
         </Card>
       )}
 
-      <Card className="section-card" bordered={false} title="质押用户表格">
+      <Card className="section-card" variant="borderless" title="质押用户表格">
         <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Table
             className="arcfi-table"
@@ -868,7 +868,7 @@ const StakingPoolPage = () => {
       </Card>
 
       {isPoolOwner && (
-        <Card className="section-card" bordered={false} title="奖励注入">
+        <Card className="section-card" variant="borderless" title="奖励注入">
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Typography.Text className="section-note">
               先将奖励 Token 注入质押池，再根据需要发起统一派发。注入操作不会立即改变用户可领取奖励。
@@ -908,7 +908,7 @@ const StakingPoolPage = () => {
       )}
 
       {isTokenOwner && (
-        <Card className="section-card" bordered={false} title="直接转账发放">
+        <Card className="section-card" variant="borderless" title="直接转账发放">
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Typography.Text className="section-note">
               从代币所有者钱包直接向目标地址转账奖励，不经过质押池的奖励记账逻辑。
@@ -943,7 +943,7 @@ const StakingPoolPage = () => {
       )}
 
       {isPoolOwner && (
-        <Card className="section-card" bordered={false} title="高级派发选项">
+        <Card className="section-card" variant="borderless" title="高级派发选项">
           <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Typography.Text className="section-note">
               可选流程：先注入再单独派发，或按照两笔交易执行“转账并派发”，适合演示奖励流转细节。
@@ -979,7 +979,7 @@ const StakingPoolPage = () => {
         </Card>
       )}
 
-      <Card className="section-card" bordered={false} title="质押操作">
+      <Card className="section-card" variant="borderless" title="质押操作">
         <Row gutter={[16, 16]} className="page-actions-grid">
           <Col xs={24} lg={8}>
             <Space orientation="vertical" size="small" style={{ width: '100%' }}>

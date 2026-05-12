@@ -103,7 +103,7 @@ const VaultPage = () => {
 
   if (!address) {
     return (
-      <Card className="empty-state-card" bordered={false}>
+      <Card className="empty-state-card" variant="borderless">
         <div className="empty-state-inner">
           <Typography.Title level={2} className="page-title">
             金库
@@ -121,7 +121,7 @@ const VaultPage = () => {
 
   return (
     <Space orientation="vertical" size="large" className="page-stack">
-      <Card className="hero-card" bordered={false}>
+      <Card className="hero-card" variant="borderless">
         <div className="toolbar-row">
           <Space orientation="vertical" size="small">
             <Typography.Title level={2} className="page-title">
@@ -145,25 +145,25 @@ const VaultPage = () => {
         </div>
       </Card>
 
-      <Card className="surface-card" bordered={false}>
+      <Card className="surface-card" variant="borderless">
         <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Row gutter={[16, 16]} className="metric-grid">
             <Col xs={24} md={8}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">当前钱包地址</Typography.Text>
                 <Typography.Text className="metric-value">{`${address.slice(0, 6)}...${address.slice(-4)}`}</Typography.Text>
                 <Typography.Text className="metric-meta">当前连接钱包对应的链上地址</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} md={8}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">合约版本</Typography.Text>
                 <Typography.Text className="metric-value">{version || '-'}</Typography.Text>
                 <Typography.Text className="metric-meta">用于确认当前金库前端对应的合约版本</Typography.Text>
               </Card>
             </Col>
             <Col xs={24} md={8}>
-              <Card className="metric-card" bordered={false}>
+              <Card className="metric-card" variant="borderless">
                 <Typography.Text className="metric-label">金库余额</Typography.Text>
                 <Typography.Text className="metric-value">{balance ? `${balance} ETH` : '-'}</Typography.Text>
                 <Typography.Text className="metric-meta">当前金库合约中持有的 ETH 数量</Typography.Text>
@@ -181,7 +181,7 @@ const VaultPage = () => {
 
       <Row gutter={[16, 16]} className="page-actions-grid">
         <Col xs={24} lg={12}>
-          <Card className="section-card" bordered={false} title="存入">
+          <Card className="section-card" variant="borderless" title="存入">
             <Space orientation="vertical" size="small" style={{ width: '100%' }}>
               <Typography.Text className="section-note">
                 向金库合约存入 ETH，交易确认后会自动刷新最新余额。
@@ -207,7 +207,7 @@ const VaultPage = () => {
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card className="section-card" bordered={false} title="取出">
+          <Card className="section-card" variant="borderless" title="取出">
             <Space orientation="vertical" size="small" style={{ width: '100%' }}>
               <Typography.Text className="section-note">
                 从金库中取出指定数量的 ETH，危险操作保留红色按钮样式。
